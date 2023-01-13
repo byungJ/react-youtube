@@ -1,0 +1,11 @@
+.rec {
+    width: 200px;
+    height: 200px;
+    background-color: tomato;
+    margin: 5px;
+}
+
+.thumbImg {
+    border-radius: 0.5rem;
+    width: 100%;
+}

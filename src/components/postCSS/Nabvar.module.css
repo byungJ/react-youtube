@@ -1,0 +1,50 @@
+nav {
+    display: flex;
+}
+
+.maintext {
+    width: 25%;
+    font-size: 1.4rem;
+    display: flex;
+    text-decoration-line: none;
+    color: inherit
+}
+
+.mainlogo {
+    font-size: 2rem;
+    color: red;
+}
+
+.form {
+    width: 50%;
+    display: flex;
+    padding: 0.4rem;
+    background-color: tomato;
+}
+
+.input {
+    flex: 1 0 auto;
+    font-size: 0.5rem;
+    padding: 0.7rem 1rem;
+    border: none;
+    outline: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.button {
+    cursor: pointer;
+    background-color: darkgrey;
+    color: white;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    padding: 0 1rem;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.button:hover {
+    filter: brightness(125%);
+}
