@@ -1,31 +1,34 @@
 import React, { useState } from 'react';
-import { Link, useOutletContext } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import style from './postCSS/Nabvar.module.css'
 import { BsSearch } from 'react-icons/bs';
 import { ImYoutube } from 'react-icons/im';
+import { useQueryClient } from '@tanstack/react-query';
 
 
-export default function Navbar({context}) {
+export default function Navbar({searchUrl}) {
     const [text, setText] = useState('');
+    const client = useQueryClient();
 
     const handleChange = (e) => {
         setText(e.target.value);
     }
 
-    const submit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        // const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${text}&key=AIzaSyC9UJRHS1DuCbVvT0cREQnucmhhx7nKY7g`
+        // const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${text}&key=`
         const url = 'data/bts.json';
-        context(url);
+        searchUrl(url);
+        //client.invalidateQueries(['top-videos'])
     }
 
     return (
-        <nav className={style} onSubmit={submit}>
+        <header className={style}>
             <Link to='/' className={style.maintext}><ImYoutube className={style.mainlogo}/>YouTube</Link>
-            <form className={style.form}>
+            <form className={style.form} onSubmit={handleSubmit}>
                 <input type='text' className={style.input} value={text} onChange={handleChange}/>
                 <button className={style.button}><BsSearch/></button>
             </form>
-        </nav>
+        </header>
     );
 }
